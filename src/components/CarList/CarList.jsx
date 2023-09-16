@@ -1,10 +1,6 @@
 import cars from '../advertsCars.json'
-// import clsx from 'clsx';
-// import { List } from '../styled';
-// import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-// import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
+// import Box from '@mui/material/Box';
+// import Grid from '@mui/material/Grid';
 import { LiStyled, ListStyled, Item, Button, CardContainer, Span, AdressCardContainer } from '../styled';
 import '../../index.css'; 
 
