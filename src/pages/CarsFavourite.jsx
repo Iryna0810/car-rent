@@ -1,10 +1,12 @@
 import React from "react"
+import { Title } from '../components/styled'
+import '../index.css';
 
 const CarsFavourite = ({name}) => {
     return (
-    <div>
-            <h2>{name }</h2>
-    </div>
+    <div className="Container" >
+            <Title>{name }</Title>
+            </div>     
     )
 
 }

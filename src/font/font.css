@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Monrope';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Monrope Regular'), local('Monrope-Regular'),
+        url('../font/static/Manrope-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Monrope';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Monrope Regular'), local('Monrope-Regular'),
+        url('../font/static/Manrope-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Monrope';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Monrope SemiBold'), local('Monrope-SemiBold'),
+        url('../font/static/Manrope-SemiBold.ttf') format('truetype');
+}
