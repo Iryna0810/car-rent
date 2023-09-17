@@ -134,6 +134,7 @@ color: #121417;
 font-weight: 600;
 line-height: 20px;
 margin-top: 14px;
+padding: 5px;
 `
 
 export const Span = styled.span`
@@ -147,7 +148,7 @@ font-size: 12px;
 font-weight: 400;
 line-height: 18px;
 margin-top: 8px;
-
+padding: 5px;
 `
 
 export const ListStyled = styled.ul`
@@ -168,6 +169,7 @@ export const ListStyled = styled.ul`
   text-decoration: none;
     `
 export const LiStyled = styled.li`
+  position: relative;
   width: calc((100% - 87px) / 4);
   height: auto;
   background-color: #F3F3F2;

@@ -1,5 +1,6 @@
 import React from 'react';
 // import styled from "styled-components";
+import { useState, useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
 import Cars from './pages/Cars';
 import Home from './pages/Home';
@@ -9,7 +10,25 @@ import './index.css';
 import './font/font.css'
 
 
+const useLocalStorage = (key, defaultValue) => {
+  const parseCars = JSON.parse(window.localStorage.getItem(key));
+  const [state, setState] = useState(() => {
+    if (!parseCars) { return defaultValue }
+    if (parseCars.length > 0 ) { return parseCars }
+    else return defaultValue;
+  });
+  
+  useEffect(() => {
+    window.localStorage.setItem(key, JSON.stringify(state));
+  }, [key, state]);
+  return [state, setState];
+}
+
+
 function App() {
+  const [cars, setCars] = useLocalStorage("carsLocalStorage", []);
+
+
   return (
       <Routes>
         <Route path="/" element={<SharedLayout />}>
