@@ -142,13 +142,21 @@ color: #3470FF;
 `
 
 export const AdressCardContainer = styled.div`
-display: block;
+display: flex;
+gap: 3px;
+height: 40px;
+flex-wrap: wrap;
 color: #121417;
 font-size: 12px;
 font-weight: 400;
 line-height: 18px;
 margin-top: 8px;
 padding: 5px;
+margin-bottom: 28px;
+`
+export const Text = styled.p`
+border-left: 1px solid rgba(18, 20, 23, 0.5);
+padding: 3px;
 `
 
 export const ListStyled = styled.ul`
@@ -170,6 +178,10 @@ export const ListStyled = styled.ul`
     `
 export const LiStyled = styled.li`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  // justyfy-content: flex-end;
+  min-width: 274px;
   width: calc((100% - 87px) / 4);
   height: auto;
   background-color: #F3F3F2;
