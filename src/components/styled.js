@@ -21,14 +21,20 @@ font-size: 50px;
 
 export const StyledLink = styled(NavLink)`
   padding: 8px 16px;
-  border-radius: 4px;
+  border-radius: 12px;
   text-decoration: none;
   color: #fff;
+  font-family: Manrope;
   font-weight: 500;
 
+  &:hover {
+    color: #fff;
+    background-color: silver;
+  }
+
   &.active {
-    color: white;
-    background-color: orangered;
+    color: black;
+    background-color: silver;
   }`
 
   export const LinkPage = styled(NavLink)`
@@ -42,7 +48,7 @@ export const StyledLink = styled(NavLink)`
 
   &.active {
     color: white;
-    background-color: orangered;
+    background-color: silver;
   }`
 
 
