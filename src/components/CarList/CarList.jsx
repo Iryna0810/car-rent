@@ -2,7 +2,7 @@ import { Vortex } from 'react-loader-spinner';
 import {CarItem} from '../CarItem/CarItem'
 import { useState, useEffect } from 'react';
 import {getAllCars} from './services';
-import { ListStyled, Button} from '../styled';
+import { ListStyled} from '../styled';
 import '../../index.css'; 
 
 const useLocalStorage = (key, defaultValue) => {
@@ -58,7 +58,7 @@ const CarList = () => {
             console.log(isFavoriteId);
             !isFavoriteId
                 ? setCarsAllFavorite(carList => [...carList, searchCar])
-                : setCarsAllFavorite((carList) => carsAllFavorite.filter(car => car.id != carId))
+                : setCarsAllFavorite((carList) => carsAllFavorite.filter(car => Number(car.id) !== carId))
         
             console.log(e.target.getAttribute('fill'))
             e.target.getAttribute('fill') === 'white' ? e.target.setAttribute('fill', 'blue') : e.target.setAttribute('fill', 'white')
