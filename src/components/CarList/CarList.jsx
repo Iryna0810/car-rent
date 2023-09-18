@@ -1,12 +1,8 @@
-// import cars from '../advertsCars.json'
-// import Box from '@mui/material/Box';
-// import Grid from '@mui/material/Grid';
-import Loader from '../Loader/Loader';
-import { Modal } from '../Modal/Modal';
+import { Vortex } from 'react-loader-spinner';
+import {CarItem} from '../CarItem/CarItem'
 import { useState, useEffect } from 'react';
 import {getAllCars} from './services';
-import { AiOutlineHeart } from 'react-icons/ai'
-import { LiStyled, Text, ListStyled, Item, Button, CardContainer, Span, AdressCardContainer } from '../styled';
+import { ListStyled, Button} from '../styled';
 import '../../index.css'; 
 
 const useLocalStorage = (key, defaultValue) => {
@@ -29,24 +25,25 @@ const CarList = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
     const [carsAllFavorite, setCarsAllFavorite] = useLocalStorage("carsListLocalStorage", []);
-    const [showModal, setShowModal] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
 
-    const toggleModal = () => {
-        setShowModal(!showModal)
+    const handleMoreLoad = () => {
+        setCurrentPage(prev => prev + 1)
     }
-
     
     useEffect(() => {
+        if (!cars) return setCurrentPage(1);
         setIsLoading(true);
-        getAllCars().then(({ data }) => {
-            console.log(data)
+        getAllCars(currentPage).then(({ data }) => {
+            if (data.length === 0) return setCurrentPage(1);
             setCars(data);
         })
             .catch((error) => setError(error))
             .finally(() => {
                 setIsLoading(false)
             })
-    }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentPage])
 
     const handleFavoriteCarList = (e) => {
         let carId = Number(
@@ -71,45 +68,23 @@ const CarList = () => {
 
     return (
         <ListStyled>
-            {cars.map(({ id, year, make, model, type, img, description, fuelConsumption, engineSize, accessories, functionalities, rentalPrice, rentalCompany, address, rentalConditions, mileage }) =>
-            (<LiStyled key={id} className="ImageGalleryItem" onClick={toggleModal}>
-                {/* <TiHeartFullOutline color='blue'/> */}
-                <AiOutlineHeart data-id={id} fill='white' style={{
-                    width: '18',
-                    height: '18',
-                    position: 'absolute',
-                    top: '14',
-                    right: '14',
-                    cursor: 'pointer',
-                }}
-                    onClick={(e) => handleFavoriteCarList(e)}
-                />
-                <Item src={img} alt='car {id}' ></Item>
-                <CardContainer>
-                    <p>{make} <Span>{model}</Span>, {year}</p>
-                    <p>{rentalPrice}</p>
-                </CardContainer>
-
-                <AdressCardContainer>
-                    <p style={{ padding: '3px' }}>{address.split(',')[1]}</p>
-                    <Text>{address.split(',')[2]}</Text>
-                    <Text>{rentalCompany}</Text>
-                    <Text>{type}</Text>
-                    <Text>{model}</Text>
-                    <Text>{mileage}</Text>
-                    <Text>{accessories[0].split(' ')[0]} {accessories[0].split(' ')[1]}</Text>
-                </AdressCardContainer>
-                <Button type='button' onClick={toggleModal}>Learn more</Button>
-
-                {showModal && (<Modal onCloseModal={toggleModal}>
-        <Item src={img} alt='car {id}' ></Item>
-      </Modal>)}
+             {isLoading && <Vortex
+                    visible={true}
+                    height="280"
+                    width="280"
+                    ariaLabel="vortex-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="vortex-wrapper"
+                    colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']}
+                />}
                 
-            </LiStyled>))}
-
+            {error && <div>Something went wrong. Try again later</div>}
+            {cars && cars.map((car) => <CarItem key={car.id} car={car} handleFavoriteCarList={handleFavoriteCarList} />)}
+            {cars.length > 0 && <button style={{color: "#3470FF", borderRadius: '12px', width: '180px', height: '70px' }} onClick={handleMoreLoad}>Load More</button>}
+        
         </ListStyled>)
-
+    
+    
 };
-
 
 export default CarList

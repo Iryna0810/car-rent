@@ -4,6 +4,7 @@ import '../index.css';
 import { useEffect, useState } from "react";
 import {getAllCars} from '../components/CarList/services';
 import { AiOutlineHeart } from 'react-icons/ai'
+import { CarItem } from "../components/CarItem/CarItem";
 import { LiStyled, Text, ListStyled, Item, Button, CardContainer, Span, AdressCardContainer } from '../components/styled';
 
 const useLocalStorage = (key, defaultValue) => {
@@ -57,37 +58,7 @@ const CarsFavourite = ({ name }) => {
 
     return (
         <ListStyled>
-            {carsAllFavorite.map(({id, year, make, model, type, img, description, fuelConsumption, engineSize, accessories, functionalities, rentalPrice, rentalCompany, address, rentalConditions, mileage }) => (
-                <LiStyled key={id} className="ImageGalleryItem">
-                    <AiOutlineHeart data-id={id} fill='blue' style={{
-                        width: '18',
-                        height: '18',
-                        position: 'absolute',
-                        top: '14',
-                        right: '14',
-                        cursor: 'pointer',
-                    }}
-                        onClick={(e) => handleFavoriteCarList(e)}
-                    />
-                    <Item src={img} alt='car {id}' ></Item>
-                    <CardContainer>
-                    <p>{make} <Span>{model}</Span>, {year}</p>
-                    <p>{rentalPrice }</p>
-                    </CardContainer>
-
-                    <AdressCardContainer>
-                    <p style={{ padding: '3px'}}>{address.split(',')[1]}</p>
-                    <Text>{address.split(',')[2]}</Text>
-                    <Text>{rentalCompany}</Text>
-                    <Text>{type}</Text>
-                    <Text>{model}</Text>
-                    <Text>{mileage}</Text>
-                    <Text>{accessories[0].split(' ')[0] } {accessories[0].split(' ')[1]}</Text>
-                    </AdressCardContainer>
-                    <Button type='button'>Learn more</Button>
-        </LiStyled>
-            ))
-            }
+            {carsAllFavorite.map((car) => <CarItem key={car.id} car={car} handleFavoriteCarList={handleFavoriteCarList} />)}
         </ListStyled>
     )
 
