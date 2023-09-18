@@ -7,6 +7,7 @@ import Loader from "../components/Loader/Loader";
 
 const Cars = ({ name }) => {
     // const [cars, setCars] = useState([]);
+    // eslint-disable-next-line no-unused-vars
     const [isLoading, setIsLoading] = useState(false);
     // const [error, setError] = useState('');
     // const [currentPage, setCurrentPage] = useState(1);
