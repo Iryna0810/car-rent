@@ -25,6 +25,7 @@ const CarsFavourite = () => {
     const [carsAllFavorite, setCarsAllFavorite] = useLocalStorage("carsListLocalStorage", []);
 
     useEffect(() => {
+        // eslint-disable-next-line no-unused-vars
         const parseCars = JSON.parse(window.localStorage.getItem('carsListLocalStorage'));
         // console.log(parseCars);  
     })
