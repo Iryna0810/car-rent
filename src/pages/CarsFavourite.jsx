@@ -26,19 +26,19 @@ const CarsFavourite = () => {
 
     useEffect(() => {
         const parseCars = JSON.parse(window.localStorage.getItem('carsListLocalStorage'));
-        console.log(parseCars);  
+        // console.log(parseCars);  
     })
 
     const handleFavoriteCarList = (e) => {
         let carId = Number(
     e.target.getAttribute('data-id')
         );
-        console.log(carId);
+        // console.log(carId);
 
         if (carId) {
             setCarsAllFavorite(() => carsAllFavorite.filter(car => Number(car.id) !== carId))
         
-            console.log(e.target.getAttribute('fill'))
+            // console.log(e.target.getAttribute('fill'))
             e.target.getAttribute('fill') === 'white' ? e.target.setAttribute('fill', 'blue') : e.target.setAttribute('fill', 'white')
         }
         else return;
