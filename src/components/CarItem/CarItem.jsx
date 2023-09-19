@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AiOutlineHeart } from 'react-icons/ai'
-import { LiStyled, Text, TextModal, Item, Button, CardContainer, Span, AdressCardContainer } from '../styled';
+import { LiStyled, Text, TextModal, Item,ContainerModal, Button, CardContainer, Span, AdressCardContainer } from '../styled';
 import { Modal } from '../Modal/Modal';
 
 
@@ -16,6 +16,7 @@ export const CarItem = ({ car, handleFavoriteCarList }) => {
   return (
     <>
       {showModal && (<Modal onCloseModal={toggleModal}>
+        <ContainerModal>
         <Item src={img} alt='car {id}' ></Item>
                     <CardContainer>
                     <p>{make} <Span>{model}</Span>, {year}</p>
@@ -39,12 +40,12 @@ export const CarItem = ({ car, handleFavoriteCarList }) => {
               <h3 style={{fontSize: '14px', color: '#121417', fontWeight: 500, lineHeight: '20px'}}>Rental Conditions: </h3>
               <AdressCardContainer style={{fontSize: '12px', color: '#121417', fontWeight: 600, lineHeight: '18px'}}>
                   <TextModal>{rentalConditions}</TextModal> <br/>
-                  <TextModal>Mileage: <span style={{color: 'blue'}}> {mileage}</span></TextModal>
+                  <TextModal style={{display: 'inline-block'}}>Mileage: <span style={{color: 'blue'}}> {mileage}</span></TextModal>
                   <TextModal>Price: <span style={{color: 'blue'}}>{ rentalPrice}</span></TextModal>
 
               </AdressCardContainer>
-              <Button style={{width: "168px", height: '44px' }}>Rental car</Button>
-
+              <Button onClick={toggleModal} style={{width: "168px", minHeight: '44px' }}>Rental car</Button>
+</ContainerModal>
       </Modal>)}
 
       <LiStyled key={id} className="ImageGalleryItem" >

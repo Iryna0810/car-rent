@@ -63,6 +63,15 @@ export const FormWrapper = styled.form`
   gap: 20px;
 `;
 
+export const ContainerModal = styled.div`
+display: flex;
+flex-direction: column;
+overflow: auto;
+width: 541px;
+height: 700px;
+padding: 40px;
+`
+
 export const Header = styled.header`
   top: 0;
   left: 0;
@@ -94,7 +103,7 @@ export const Button = styled.button`
     vertical-align: middle;
     padding: 12px, 99px, 12px, 99px;
     margin: 0 auto;
-    margin-top: 28px;
+    // margin-top: 28px;
     border: 1px #3470FF;
     border-radius: 12px;
     background: #3470FF;
