@@ -26,30 +26,28 @@ const CarsFavourite = () => {
 
     useEffect(() => {
         // eslint-disable-next-line no-unused-vars
-        const parseCars = JSON.parse(window.localStorage.getItem('carsListLocalStorage'));
-        // console.log(parseCars);  
+        const parseCars = JSON.parse(window.localStorage.getItem('carsListLocalStorage')); 
     })
 
     const handleFavoriteCarList = (e) => {
         let carId = Number(
     e.target.getAttribute('data-id')
         );
-        // console.log(carId);
 
         if (carId) {
             setCarsAllFavorite(() => carsAllFavorite.filter(car => Number(car.id) !== carId))
-        
-            // console.log(e.target.getAttribute('fill'))
-            e.target.getAttribute('fill') === 'white' ? e.target.setAttribute('fill', 'blue') : e.target.setAttribute('fill', 'white')
+                    e.target.getAttribute('fill') === 'white' ? e.target.setAttribute('fill', 'blue') : e.target.setAttribute('fill', 'white')
         }
         else return;
     }
 
 
     return (
+        <div className="Container" >
         <ListStyled>
             {carsAllFavorite.map((car) => <CarItem key={car.id} car={car} handleFavoriteCarList={handleFavoriteCarList} />)}
         </ListStyled>
+        </div>
     )
 
 }
