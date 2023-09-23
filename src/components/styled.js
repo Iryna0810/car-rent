@@ -68,7 +68,7 @@ display: flex;
 flex-direction: column;
 overflow: auto;
 width: 541px;
-height: 700px;
+height: auto;
 padding: 40px;
 `
 
@@ -152,8 +152,7 @@ color: #3470FF;
 
 export const AdressCardContainer = styled.div`
 display: flex;
-gap: 3px;
-// height: 40px;
+gap: 8px;
 flex-wrap: wrap;
 color: #121417;
 font-size: 12px;
@@ -165,9 +164,11 @@ margin-bottom: 28px;
 `
 export const Text = styled.p`
 border-left: 1px solid rgba(18, 20, 23, 0.5);
-padding: 3px;
+padding: 6px;
 `
 export const TextModal = styled.p`
+display: block;
+background-color: #F9F9F9;
 background-color: #F9F9F9;
 padding: 7px, 14px, 7px, 14px;
 border-radius: 35px;

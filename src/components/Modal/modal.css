@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1200;
 }
 
@@ -21,7 +21,7 @@
     max-height: calc(100vh - 24px);
     padding: 12px;
     background-color: aliceblue;
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: 14px 10px 31px 0px rgba(0, 0, 0, 0.6);
     ;
 }

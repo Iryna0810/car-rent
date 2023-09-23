@@ -11,7 +11,8 @@ export const CarItem = ({ car, handleFavoriteCarList }) => {
     setShowModal(!showModal)
   }
 
-  const { id, year, make, model, type, img, description, accessories, rentalPrice, rentalCompany, address, rentalConditions, mileage } = car;
+  const { id, year, make, model, type, img, fuelConsumption, engineSize, description, accessories, rentalPrice, rentalCompany, address, rentalConditions, mileage } = car;
+  console.log(car);
 
   return (
     <>
@@ -23,24 +24,25 @@ export const CarItem = ({ car, handleFavoriteCarList }) => {
                     </CardContainer>
 
                     <AdressCardContainer>
-                    <p style={{ padding: '3px'}}>{address.split(',')[1]}</p>
+                    <p style={{ padding: '3px', alignSelf: 'center'}}>{address.split(',')[1]}</p>
                     <Text>{address.split(',')[2]}</Text>
-                    <Text>{rentalCompany}</Text>
-                    <Text>{type}</Text>
-                    <Text>{model}</Text>
-                    <Text>{mileage}</Text>
-                    <Text>{accessories[0].split(' ')[0] } {accessories[0].split(' ')[1]}</Text>
+            <Text>id: {id}</Text>
+            <Text>Year: {year}</Text>
+            <Text>Type: {type}</Text>
+            <Text>Fuel Consumption: {fuelConsumption}</Text>
+            <Text>Engine Size: {engineSize }</Text>
+
               </AdressCardContainer>
               
               <p style={{fontSize: '12px', color: '#121417', fontWeight: 400, lineHeight: '18px'}}>{description}</p>
               <h3 style={{marginTop: '24px', fontSize: '14px', color: '#121417', fontWeight: 500, lineHeight: '20px'}}>Accessories and functionalities:</h3>
               <AdressCardContainer>
-                  {accessories}
+                  <p>{accessories[0]}</p>
               </AdressCardContainer>
               <h3 style={{fontSize: '14px', color: '#121417', fontWeight: 500, lineHeight: '20px'}}>Rental Conditions: </h3>
               <AdressCardContainer style={{fontSize: '12px', color: '#121417', fontWeight: 600, lineHeight: '18px'}}>
                   <TextModal>{rentalConditions}</TextModal> <br/>
-                  <TextModal style={{display: 'inline-block'}}>Mileage: <span style={{color: 'blue'}}> {mileage}</span></TextModal>
+                  <TextModal >Mileage: <span style={{color: 'blue'}}> {mileage}</span></TextModal>
                   <TextModal>Price: <span style={{color: 'blue'}}>{ rentalPrice}</span></TextModal>
 
               </AdressCardContainer>
@@ -67,7 +69,7 @@ export const CarItem = ({ car, handleFavoriteCarList }) => {
                     </CardContainer>
 
                     <AdressCardContainer>
-                    <p style={{ padding: '3px'}}>{address.split(',')[1]}</p>
+                    <p style={{ padding: '3px', alignSelf: 'center'}}>{address.split(',')[1]}</p>
                     <Text>{address.split(',')[2]}</Text>
                     <Text>{rentalCompany}</Text>
                     <Text>{type}</Text>
