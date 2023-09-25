@@ -70,6 +70,7 @@ overflow: auto;
 width: 541px;
 height: auto;
 padding: 40px;
+
 `
 
 export const Header = styled.header`

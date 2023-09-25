@@ -59,9 +59,12 @@ const CarList = () => {
             !isFavoriteId
                 ? setCarsAllFavorite(carList => [...carList, searchCar])
                 : setCarsAllFavorite((carList) => carsAllFavorite.filter(car => Number(car.id) !== carId))
-        
-            console.log(e.target.getAttribute('fill'))
-            e.target.getAttribute('fill') === 'white' ? e.target.setAttribute('fill', 'blue') : e.target.setAttribute('fill', 'white')
+            isFavoriteId ? e.target.setAttribute('fill', 'blue') : e.target.setAttribute('fill', 'white')
+            
+            // console.log(e.target.getAttribute('fill'))
+            // e.target.getAttribute('fill') === 'white'
+            //     ? e.target.setAttribute('fill', 'blue')
+            //     : e.target.setAttribute('fill', 'white')
         }
         else return;
     }

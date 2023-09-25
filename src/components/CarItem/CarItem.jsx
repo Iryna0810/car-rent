@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { AiOutlineHeart } from 'react-icons/ai'
+import { AiOutlineHeart, AiOutlineClose } from 'react-icons/ai';
+import {TiHeartFullOutline} from "react-icons/ti"
 import { LiStyled, Text, TextModal, Item,ContainerModal, Button, CardContainer, Span, AdressCardContainer } from '../styled';
 import { Modal } from '../Modal/Modal';
 
@@ -18,7 +19,8 @@ export const CarItem = ({ car, handleFavoriteCarList }) => {
     <>
       {showModal && (<Modal onCloseModal={toggleModal}>
         <ContainerModal>
-        <Item src={img} alt='car {id}' ></Item>
+        <AiOutlineClose onClick={toggleModal} style={{cursor: 'pointer', top: '16px', right: "16px", position: 'absolute', width: '24px', height: '24px'}} />
+        <Item src={img} alt='car {model}' ></Item>
                     <CardContainer>
                     <p>{make} <Span>{model}</Span>, {year}</p>
                     </CardContainer>
@@ -51,10 +53,10 @@ export const CarItem = ({ car, handleFavoriteCarList }) => {
       </Modal>)}
 
       <LiStyled key={id} className="ImageGalleryItem" >
-                    {/* <TiHeartFullOutline color='blue'/> */}
+                    <TiHeartFullOutline color='blue'/>
                     <AiOutlineHeart data-id={id} fill='white' style={{
-                        width: '18',
-                        height: '18',
+                        width: '18px',
+                        height: '18px',
                         position: 'absolute',
                         top: '14',
                         right: '14',

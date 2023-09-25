@@ -1,12 +1,9 @@
 import axios from "axios";
 
 const SEARCH_URL = 'https://6503525ca0f2c1f3faebccd8.mockapi.io/cars';
-// SEARCH_URL.searchParams.append('page', 1);
-// SEARCH_URL.searchParams.append('limit', 8);
 
 export const getAllCars = (currentPage) => {
-
-    
+   
 
 const searchParameters = new URLSearchParams({
             page: Number(currentPage),
