@@ -95,14 +95,17 @@ export const Header = styled.header`
 
 export const Button = styled.button`
     display: block;
+    // position: absolute;
+    margin-bottom: 0;
+    margin-top: auto;
     width: 100%;
-    height:70px;
+    height: 44px;
     font-size: 14px;
     font-weight: 600;
     line-height: 20px;
     text-align: center;
     vertical-align: middle;
-    padding: 12px, 99px, 12px, 99px;
+    padding: 12px 99px 12px 99px;
     margin: 0 auto;
     // margin-top: 28px;
     border: 1px #3470FF;
@@ -152,16 +155,18 @@ color: #3470FF;
 `
 
 export const AdressCardContainer = styled.div`
-display: flex;
-gap: 8px;
-flex-wrap: wrap;
+display: flex;;
+// grid-template-columns: 1fr 1fr 1fr 1fr; 
+// gap: 8px;
+flex-flow: wrap;
 color: #121417;
 font-size: 12px;
 font-weight: 400;
 line-height: 18px;
 margin-top: 8px;
-padding: 5px;
+// padding: 2px;
 margin-bottom: 28px;
+// overflow: hidden;
 `
 export const Text = styled.p`
 border-left: 1px solid rgba(18, 20, 23, 0.5);
@@ -170,8 +175,7 @@ padding: 6px;
 export const TextModal = styled.p`
 display: block;
 background-color: #F9F9F9;
-background-color: #F9F9F9;
-padding: 7px, 14px, 7px, 14px;
+padding: 7px 14px 7px 14px;
 border-radius: 35px;
 `
 
@@ -179,7 +183,7 @@ export const ListStyled = styled.ul`
   display: flex;
   max-width: calc(100vw - 87px);
   flex-wrap: wrap;
-        height: auto;
+        min-height: 426px;
         width: 100%;
 
 //   grid-template-columns: repeat(auto-fill, minmax(274px, fr));
@@ -232,4 +236,23 @@ export const ContainerHome = styled.div`
      margin: 0 auto;
      padding: 10px;
 `
-
+export const RentalButton = styled.button`
+display: block;
+    width: 168px;
+    height: 44px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 50px;
+    margin-right: auto;
+    border: 1px #3470FF;
+    border-radius: 12px;
+    background: #3470FF;
+    color: #ffffff;
+    cursor: pointer;
+    text-decoration: none;
+      &:hover {
+    background: #0B44CD;
+`

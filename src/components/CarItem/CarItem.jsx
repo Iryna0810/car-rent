@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AiOutlineHeart, AiOutlineClose } from 'react-icons/ai';
 // import {TiHeartFullOutline} from "react-icons/ti"
-import { LiStyled, Text, TextModal, Item,ContainerModal, Button, CardContainer, Span, AdressCardContainer } from '../styled';
+import { LiStyled, Text, TextModal, RentalButton, Item,ContainerModal, Button, CardContainer, Span, AdressCardContainer } from '../styled';
 import { Modal } from '../Modal/Modal';
 
 
@@ -43,12 +43,13 @@ export const CarItem = ({ car, handleFavoriteCarList }) => {
               </AdressCardContainer>
               <h3 style={{fontSize: '14px', color: '#121417', fontWeight: 500, lineHeight: '20px'}}>Rental Conditions: </h3>
               <AdressCardContainer style={{fontSize: '12px', color: '#121417', fontWeight: 600, lineHeight: '18px'}}>
-                  <TextModal>{rentalConditions}</TextModal> <br/>
-                  <TextModal >Mileage: <span style={{color: 'blue'}}> {mileage}</span></TextModal>
-                  <TextModal>Price: <span style={{color: 'blue'}}>{ rentalPrice}</span></TextModal>
-
-              </AdressCardContainer>
-              <Button onClick={toggleModal} style={{width: "168px", minHeight: '44px' }}>Rental car</Button>
+            <TextModal >Minimum age: <span style={{color: '#3470FF'}}>{rentalConditions.split('\n')[0].trim().split(':')[1]}</span></TextModal>
+            <TextModal>{rentalConditions.split('\n')[1]}</TextModal>
+            <TextModal>{rentalConditions.split('\n')[2]}</TextModal>
+            <TextModal >Mileage: <span style={{color: '#3470FF'}}> {mileage}</span></TextModal>
+            <TextModal>Price: <span style={{color: '#3470FF'}}>{ rentalPrice}</span></TextModal>
+          </AdressCardContainer>
+            <RentalButton onClick={toggleModal}>Rental car</RentalButton>
 </ContainerModal>
       </Modal>)}
 
